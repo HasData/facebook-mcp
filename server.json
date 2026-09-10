@@ -1,0 +1,61 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.hasdata/facebook",
+  "title": "HasData Facebook",
+  "description": "Public Facebook pages and profiles with likes, followers, contact details and posts, as JSON.",
+  "version": "1.0.0",
+  "websiteUrl": "https://docs.hasdata.com/apis/facebook/profile",
+  "repository": {
+    "url": "https://github.com/HasData/facebook-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.hasdata.com/api/mcp?apis=facebook",
+      "headers": [
+        {
+          "name": "x-api-key",
+          "description": "HasData API key, created at app.hasdata.com. 1,000 free credits every month, no card.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@hasdata/facebook-mcp",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "HASDATA_API_KEY",
+          "description": "HasData API key, created at app.hasdata.com. 1,000 free credits every month, no card.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    },
+    {
+      "registryType": "pypi",
+      "identifier": "hasdata-facebook-mcp",
+      "version": "1.0.0",
+      "runtimeHint": "uvx",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "HASDATA_API_KEY",
+          "description": "HasData API key, created at app.hasdata.com. 1,000 free credits every month, no card.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

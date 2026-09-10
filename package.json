@@ -1,0 +1,41 @@
+{
+  "name": "@hasdata/facebook-mcp",
+  "mcpName": "com.hasdata/facebook",
+  "version": "1.0.0",
+  "description": "MCP server for Facebook through HasData's hosted API: a public page or profile by handle with likes, followers, contact details and the post feed with reactions, paged three posts at a time. No Meta developer app. 1,000 free credits every month.",
+  "type": "module",
+  "bin": {
+    "hasdata-facebook-mcp": "index.mjs"
+  },
+  "files": [
+    "index.mjs",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "dependencies": {
+    "mcp-remote": "^0.1.43"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HasData/facebook-mcp.git"
+  },
+  "homepage": "https://docs.hasdata.com/apis/facebook/profile",
+  "keywords": [
+    "mcp",
+    "facebook",
+    "facebook-mcp",
+    "social-media",
+    "marketing",
+    "lead-enrichment",
+    "model-context-protocol",
+    "hasdata",
+    "scraper"
+  ]
+}

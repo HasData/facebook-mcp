@@ -1,0 +1,24 @@
+[project]
+name = "hasdata-facebook-mcp"
+version = "1.0.0"
+description = "MCP server for Facebook through HasData's hosted API. 1,000 free credits every month."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = ["mcp","facebook","social-media","marketing","lead-enrichment","model-context-protocol","hasdata"]
+# mcp is pinned below 2 because mcp-proxy 0.12.0 imports request_ctx, removed in the mcp 2.x SDK.
+dependencies = ["mcp-proxy>=0.12.0", "mcp>=1.17,<2"]
+
+[project.urls]
+Homepage = "https://docs.hasdata.com/apis/facebook/profile"
+Repository = "https://github.com/HasData/facebook-mcp"
+
+[project.scripts]
+hasdata-facebook-mcp = "hasdata_facebook_mcp:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["hasdata_facebook_mcp"]
