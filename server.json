@@ -39,23 +39,6 @@
           "isSecret": true
         }
       ]
-    },
-    {
-      "registryType": "pypi",
-      "identifier": "hasdata-facebook-mcp",
-      "version": "1.0.0",
-      "runtimeHint": "uvx",
-      "transport": {
-        "type": "stdio"
-      },
-      "environmentVariables": [
-        {
-          "name": "HASDATA_API_KEY",
-          "description": "HasData API key, created at app.hasdata.com. 1,000 free credits every month, no card.",
-          "isRequired": true,
-          "isSecret": true
-        }
-      ]
     }
   ]
 }
