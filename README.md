@@ -164,6 +164,10 @@ One call returns the page record and the newest post. Walking the feed takes one
 
 ## Tools
 
+| Tool | Credits | What it returns |
+| :--- | :--- | :--- |
+| `hasdata_facebook_profile_getFacebookProfile` | 10 | Fetches a public Facebook page or profile by handle (username, @username or numeric profile id) and returns page id, name, username, category, bio, exact likes and… |
+
 One tool, 10 credits per successful call.
 
 ### Get Facebook profile
@@ -171,10 +175,6 @@ One tool, 10 credits per successful call.
 [`hasdata_facebook_profile_getFacebookProfile`](https://docs.hasdata.com/apis/facebook/profile?utm_source=github&utm_medium=syndication&utm_campaign=facebook-mcp)
 
 A public page or profile, with its feed.
-
-| Tool | Credits | What it returns |
-| :--- | :--- | :--- |
-| `hasdata_facebook_profile_getFacebookProfile` | 10 | The page record with likes, followers, contact details and owner, the newest post, the photo strip, and a token for the next three posts |
 
 | Parameter | Type | Required | Notes |
 | :--- | :--- | :--- | :--- |
