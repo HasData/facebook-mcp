@@ -164,9 +164,9 @@ One call returns the page record and the newest post. Walking the feed takes one
 
 ## Tools
 
-| Tool | Credits | What it returns |
-| :--- | :--- | :--- |
-| `hasdata_facebook_profile_getFacebookProfile` | 10 | Fetches a public Facebook page or profile by handle (username, @username or numeric profile id) and returns page id, name, username, category, bio, exact likes and… |
+| Tool | What it returns |
+| --- | --- |
+| `hasdata_facebook_profile_getFacebookProfile` | Fetches a public Facebook page or profile by handle (username, @username or numeric profile id) and returns page id, name, username, category, bio, exact likes and…. 10 credits a call |
 
 One tool, 10 credits per successful call.
 
