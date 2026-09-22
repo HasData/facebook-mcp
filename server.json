@@ -3,7 +3,7 @@
   "name": "com.hasdata/facebook",
   "title": "HasData Facebook",
   "description": "Public Facebook pages and profiles with likes, followers, contact details and posts, as JSON.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "websiteUrl": "https://docs.hasdata.com/apis/facebook/profile",
   "repository": {
     "url": "https://github.com/HasData/facebook-mcp",
@@ -27,7 +27,7 @@
     {
       "registryType": "npm",
       "identifier": "@hasdata/facebook-mcp",
-      "version": "1.0.0",
+      "version": "1.0.2",
       "transport": {
         "type": "stdio"
       },
@@ -43,7 +43,7 @@
     {
       "registryType": "pypi",
       "identifier": "hasdata-facebook-mcp",
-      "version": "1.0.0",
+      "version": "1.0.2",
       "runtimeHint": "uvx",
       "transport": {
         "type": "stdio"
