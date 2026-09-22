@@ -1,0 +1,25 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "hasdata-facebook-mcp",
+  "version": "1.0.0",
+  "description": "Facebook MCP server for Cursor. Public pages and profiles by handle with likes, followers, talking-about counts, contact details and the post feed with reactions, as structured JSON. Remote MCP server hosted by HasData, connects over streamable HTTP with your HasData API key.",
+  "author": {
+    "name": "HasData",
+    "url": "https://hasdata.com"
+  },
+  "homepage": "https://docs.hasdata.com/apis/facebook/profile",
+  "repository": "https://github.com/HasData/facebook-mcp",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "facebook",
+    "facebook-mcp",
+    "social-media",
+    "marketing",
+    "lead-enrichment",
+    "model-context-protocol",
+    "hasdata",
+    "scraper"
+  ],
+  "logo": "https://hasdata.com/favicon.svg"
+}
