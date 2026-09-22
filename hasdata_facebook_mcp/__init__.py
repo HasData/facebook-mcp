@@ -7,7 +7,7 @@ import os
 import sys
 import subprocess
 
-URL = "https://mcp.hasdata.com/api/mcp?apis=facebook"
+URL = "https://mcp.hasdata.com/mcp?apis=facebook"
 
 
 def main() -> None:

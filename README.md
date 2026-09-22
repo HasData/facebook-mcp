@@ -9,12 +9,12 @@ It reads public Facebook pages that a signed-out visitor can see. Groups and pri
 **1,000 free credits every month, no card required**, which is 100 Facebook calls at the 10-credit rate.
 
 ```
-https://mcp.hasdata.com/api/mcp?apis=facebook
+https://mcp.hasdata.com/mcp?apis=facebook
 ```
 
 [![Glama score](https://glama.ai/mcp/servers/HasData/facebook-mcp/badges/score.svg)](https://glama.ai/mcp/servers/HasData/facebook-mcp)
 [![tool contract](https://github.com/HasData/facebook-mcp/actions/workflows/contract.yml/badge.svg)](https://github.com/HasData/facebook-mcp/actions/workflows/contract.yml)
-[![MCP](https://img.shields.io/badge/MCP-remote%20%7C%20streamable%20HTTP-6366f1?style=flat-square)](https://mcp.hasdata.com/api/mcp?apis=facebook)
+[![MCP](https://img.shields.io/badge/MCP-remote%20%7C%20streamable%20HTTP-6366f1?style=flat-square)](https://mcp.hasdata.com/mcp?apis=facebook)
 [![Tools](https://img.shields.io/badge/tools-1-10b981?style=flat-square)](#tools)
 [![npm](https://img.shields.io/npm/v/@hasdata/facebook-mcp?style=flat-square&logo=npm&label=npm&color=cb3837)](https://www.npmjs.com/package/@hasdata/facebook-mcp)
 [![PyPI](https://img.shields.io/pypi/v/hasdata-facebook-mcp?style=flat-square&logo=pypi&logoColor=white&label=PyPI&color=3775a9)](https://pypi.org/project/hasdata-facebook-mcp/)
@@ -45,7 +45,7 @@ The server URL is the same for every client. We run it hands-on in Claude Code a
 
 | Field | Value |
 | :--- | :--- |
-| URL | `https://mcp.hasdata.com/api/mcp?apis=facebook` |
+| URL | `https://mcp.hasdata.com/mcp?apis=facebook` |
 | Transport | HTTP, streamable |
 | Auth header | `x-api-key: HASDATA_API_KEY` |
 
@@ -55,7 +55,7 @@ Clients with OAuth support can add the same URL as a connector and sign in witho
 <summary><b>Claude Code</b></summary>
 
 ```bash
-claude mcp add --transport http facebook "https://mcp.hasdata.com/api/mcp?apis=facebook" \
+claude mcp add --transport http facebook "https://mcp.hasdata.com/mcp?apis=facebook" \
   --header "x-api-key: HASDATA_API_KEY"
 ```
 
@@ -64,7 +64,7 @@ claude mcp add --transport http facebook "https://mcp.hasdata.com/api/mcp?apis=f
 <details>
 <summary><b>Claude Desktop</b></summary>
 
-Settings, then Connectors, then Add custom connector, then paste `https://mcp.hasdata.com/api/mcp?apis=facebook` and sign in.
+Settings, then Connectors, then Add custom connector, then paste `https://mcp.hasdata.com/mcp?apis=facebook` and sign in.
 
 For the config-file route, Claude Desktop loads only local (stdio) servers, so it reaches a remote server through a stdio launcher. The `@hasdata/facebook-mcp` package is that launcher, and it reads the key from the environment. Add this to `claude_desktop_config.json`:
 
@@ -105,7 +105,7 @@ For Python instead of Node, swap the launcher for the PyPI package, which `uvx` 
 {
   "mcpServers": {
     "facebook": {
-      "url": "https://mcp.hasdata.com/api/mcp?apis=facebook",
+      "url": "https://mcp.hasdata.com/mcp?apis=facebook",
       "headers": { "x-api-key": "HASDATA_API_KEY" }
     }
   }
@@ -123,7 +123,7 @@ For Python instead of Node, swap the launcher for the PyPI package, which `uvx` 
 {
   "mcpServers": {
     "facebook": {
-      "serverUrl": "https://mcp.hasdata.com/api/mcp?apis=facebook",
+      "serverUrl": "https://mcp.hasdata.com/mcp?apis=facebook",
       "headers": { "x-api-key": "HASDATA_API_KEY" }
     }
   }
@@ -142,7 +142,7 @@ For Python instead of Node, swap the launcher for the PyPI package, which `uvx` 
   "servers": {
     "facebook": {
       "type": "http",
-      "url": "https://mcp.hasdata.com/api/mcp?apis=facebook",
+      "url": "https://mcp.hasdata.com/mcp?apis=facebook",
       "headers": { "x-api-key": "HASDATA_API_KEY" }
     }
   }
