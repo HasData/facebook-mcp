@@ -1,0 +1,30 @@
+---
+description: How to pull public Facebook pages and their post feed through the HasData MCP server
+alwaysApply: false
+---
+
+# Facebook through HasData
+
+One tool, `hasdata_facebook_profile_getFacebookProfile`. It takes `handle`, which is the page name from its URL or the numeric id from a `profile.php?id=` URL, and returns the page with its post feed.
+
+The payload carries two numeric ids. `profile.id` is the one a handle accepts. `pageId` is a different number and sending it gets you nothing.
+
+## Counts come in two shapes
+
+`likesCount`, `talkingAboutCount` and `checkInsCount` are numbers. `followersCount` and `followingCount` are the strings Facebook prints, and the label sits inside the string, so the values read `39M followers` and `24 following`. Strip the word and expand the suffix before comparing, and never sum a number and a string.
+
+There is no rating field on a page.
+
+## Language rewrites the strings
+
+`language` changes the category and the other labels, so a category appears in German under `de`. It rewrites the string counts along with them, which is how `39M followers` becomes `39 Mio. Follower`. The numeric fields stay as they are. Set it when the answer is for a person in that market, not to get different data.
+
+## Failure hides inside a success
+
+A page that never existed, was deleted or is not public still answers 200. The payload then carries `error` instead of `profile`, and the call is billed either way. Test for the profile before reading fields, and report a missing page as missing.
+
+## Paging drops most of the payload
+
+The first response carries the profile, the photos and one post. A call made with `nextPageToken` returns `posts` and `pagination` only, so the profile is not there to re-read on page two. Keep what you need from the first response before paging.
+
+Contact details are two different fields. `website` is the display text and `websiteUrl` is the address that resolves, alongside `phone` and an `owner` object.
