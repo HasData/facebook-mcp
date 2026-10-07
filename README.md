@@ -16,6 +16,7 @@ https://mcp.hasdata.com/mcp?apis=facebook
 [![tool contract](https://github.com/HasData/facebook-mcp/actions/workflows/contract.yml/badge.svg)](https://github.com/HasData/facebook-mcp/actions/workflows/contract.yml)
 [![MCP](https://img.shields.io/badge/MCP-remote%20%7C%20streamable%20HTTP-6366f1?style=flat-square)](https://mcp.hasdata.com/mcp?apis=facebook)
 [![Tools](https://img.shields.io/badge/tools-1-10b981?style=flat-square)](#tools)
+- [Prompts and resources](#prompts-and-resources)
 [![npm](https://img.shields.io/npm/v/@hasdata/facebook-mcp?style=flat-square&logo=npm&label=npm&color=cb3837)](https://www.npmjs.com/package/@hasdata/facebook-mcp)
 [![PyPI](https://img.shields.io/pypi/v/hasdata-facebook-mcp?style=flat-square&logo=pypi&logoColor=white&label=PyPI&color=3775a9)](https://pypi.org/project/hasdata-facebook-mcp/)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
@@ -227,6 +228,18 @@ Every call made with a token returns `posts` and `pagination` only, three posts 
   "pagination": { "postsPerPage": 3, "nextPage": 2, "nextPageToken": "eyJjdXJzb3IiOiJDZzhPYjNKbllXNXBZMTlqZFhKemIzS…" }
 }
 ```
+
+## Prompts and resources
+
+The server exposes one resource, the accepted values of the single parameter that takes a fixed list. Reading it is cheaper than learning the vocabulary from a rejected call, and it costs no credits.
+
+| Parameter | Values | What it selects |
+| --- | ---: | --- |
+| `language` | 32 | Language the page is rendered in. Facebook serves a page in the language of the request, so this changes the localised strings (`followersCount`, `followingCount`, `category`) while the exact figures (`likesCount`, `talkingAboutCount`) stay numeric in every language. |
+
+Its URI is `hasdata://facebook/language`.
+
+The list is served without an API key, so a client can read it before a user has signed up.
 
 ## Errors and failure paths
 
