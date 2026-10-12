@@ -28,3 +28,7 @@ A page that never existed, was deleted or is not public still answers 200. The p
 The first response carries the profile, the photos and one post. A call made with `nextPageToken` returns `posts` and `pagination` only, so the profile is not there to re-read on page two. Keep what you need from the first response before paging.
 
 Contact details are two different fields. `website` is the display text and `websiteUrl` is the address that resolves, alongside `phone` and an `owner` object.
+
+## Prompts and resources
+
+The server also serves resources that spell out the accepted values of every parameter that takes a fixed list, each one at `hasdata://facebook/<parameter>`. Reading one spends no credits and makes no upstream request, which beats discovering the vocabulary from a rejected call. Listing them needs no API key either, so a client can read them before the user has connected an account.
