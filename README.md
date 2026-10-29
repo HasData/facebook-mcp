@@ -2,7 +2,7 @@
 
 <!-- mcp-name: com.hasdata/facebook -->
 
-A hosted Model Context Protocol (MCP) server that gives Claude, Cursor, Windsurf and any other MCP client one read-only Facebook tool. Look up a public page or profile by its handle and get the page record with its exact like count, contact details and owner, plus the post feed with reactions, comments and shares, all as structured JSON, with no Meta developer app and nothing to host.
+A hosted [Facebook MCP server](https://hasdata.com/mcp/facebook?utm_source=github&utm_medium=syndication&utm_campaign=facebook-mcp&utm_content=readme-intro) that gives Claude, Cursor, Windsurf and any other MCP client one read-only Facebook tool. Look up a public page or profile by its handle and get the page record with its exact like count, contact details and owner, plus the post feed with reactions, comments and shares, all as structured JSON, with no Meta developer app and nothing to host.
 
 It reads public Facebook pages that a signed-out visitor can see. Groups and private personal accounts are out of scope.
 
@@ -271,7 +271,7 @@ The free tier is **1,000 credits every month with no card**, which is 100 Facebo
 
 Paid plans start at **$59 a month** for 200,000 credits, which is 20,000 calls. The unit price falls with volume, from **$2.95 per 1,000 calls** on the entry plan to **$1.19** on Basic and **$0.83** across the Growth tiers. Current figures live on the [pricing page](https://hasdata.com/prices?utm_source=github&utm_medium=syndication&utm_campaign=facebook-mcp).
 
-Your plan also sets concurrency. The free tier allows 1 request at a time, Startup 5, Basic 15, and the Growth tiers run from 50 to 500. Retry on the 429 with a backoff in anything unattended, because an agent that enriches a list of pages will reach the ceiling before you do.
+Your plan also sets concurrency. The free tier allows 5 requests at a time, Startup 5, Basic 15, and the Growth tiers run from 50 to 500. Retry on the 429 with a backoff in anything unattended, because an agent that enriches a list of pages will reach the ceiling before you do.
 
 A request that comes back non-200 is not billed. A successful call that finds no page is still a call.
 
