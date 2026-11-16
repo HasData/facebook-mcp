@@ -10,7 +10,7 @@ Then:
 
 1. Call `hasdata_facebook_profile_getFacebookProfile` with that handle.
 2. Check that the payload carries a profile. If it carries `error` instead, tell me the page is missing, private or deleted, and stop.
-3. Report the name, category, `likesCount`, `talkingAboutCount`, `checkInsCount`, the `phone`, the `owner` and the site as `websiteUrl` rather than the `website` display text.
+3. Report the name, category, `talkingAboutCount`, `checkInsCount`, `likesCount` when the page still has one, the `phone`, the `owner` and the site as `websiteUrl` rather than the `website` display text.
 4. Keep everything you need from this first response before paging, because a call with `nextPageToken` returns only `posts` and `pagination`.
 5. Follow `nextPageToken` for two more pages, then summarise the feed: how often they post, what the posts are about, and which ones drew the most reactions.
 6. Quote `followersCount` as the string it is, label included. It is not a number, and converting it silently loses the fact that Facebook rounded it.

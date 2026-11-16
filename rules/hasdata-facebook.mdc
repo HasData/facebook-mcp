@@ -11,7 +11,7 @@ The payload carries two numeric ids. `profile.id` is the one a handle accepts. `
 
 ## Counts come in two shapes
 
-`likesCount`, `talkingAboutCount` and `checkInsCount` are numbers. `followersCount` and `followingCount` are the strings Facebook prints, and the label sits inside the string, so the values read `39M followers` and `24 following`. Strip the word and expand the suffix before comparing, and never sum a number and a string.
+`talkingAboutCount` and `checkInsCount` are numbers, and `likesCount` is a number when present (Facebook dropped the page like count in November 2026, so most pages no longer carry it). `followersCount` and `followingCount` are the strings Facebook prints, and the label sits inside the string, so the values read `39M followers` and `24 following`. Strip the word and expand the suffix before comparing, and never sum a number and a string.
 
 There is no rating field on a page.
 

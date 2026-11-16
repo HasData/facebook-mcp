@@ -138,17 +138,22 @@ test('the key is accepted by HasData', live, async () => {
     assert.ok(!raw.includes('"isError":true'), `the tool call failed: ${raw.slice(0, 300)}`);
 });
 
-// The README tells readers to compare on likesCount because it is a number, and to walk the
-// feed with pagination.nextPageToken. Both claims are about the live response shape, and a
-// parser change that broke either would leave a green tools list behind it.
-test('a live page still returns a numeric like count and a feed token', live, async () => {
+// The README tells readers to compare on the numeric counts and to walk the feed with
+// pagination.nextPageToken. Both claims are about the live response shape, and a parser
+// change that broke either would leave a green tools list behind it. likesCount is optional:
+// Facebook stopped publishing a page like count in November 2026, so the field is asserted
+// only when it is present.
+test('a live page still returns numeric counts and a feed token', live, async () => {
     const { body } = await liveProfile();
     const text = body.result?.content?.[0]?.text ?? '';
     const payload = JSON.parse(text);
     const json = payload.json;
 
     assert.ok(json?.profile, `no profile object in the response: ${text.slice(0, 300)}`);
-    assert.equal(typeof json.profile.likesCount, 'number', `likesCount is no longer a number: ${JSON.stringify(json.profile.likesCount)}`);
+    assert.equal(typeof json.profile.talkingAboutCount, 'number', `talkingAboutCount is no longer a number: ${JSON.stringify(json.profile.talkingAboutCount)}`);
+    if (json.profile.likesCount !== undefined && json.profile.likesCount !== null) {
+        assert.equal(typeof json.profile.likesCount, 'number', `likesCount is present but not a number: ${JSON.stringify(json.profile.likesCount)}`);
+    }
     assert.ok(json.profile.name, 'the profile carried no name');
 
     assert.ok(Array.isArray(json.posts) && json.posts.length, 'the opening response carried no posts');

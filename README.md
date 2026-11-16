@@ -197,7 +197,6 @@ Every call made with a token returns `posts` and `pagination` only, three posts 
     "url": "https://www.facebook.com/nike",
     "category": "Sportswear Store",
     "biography": "Just Do It.",
-    "likesCount": 39545204,
     "talkingAboutCount": 173971,
     "checkInsCount": 18299,
     "followersCount": "39M followers",
@@ -245,9 +244,9 @@ The list is served without an API key, so a client can read it before a user has
 
 Plan for these rather than assuming a happy path.
 
-**Three of the counts are numbers and two are strings, and that is not a bug.** `likesCount`, `talkingAboutCount` and `checkInsCount` are the exact figures Facebook publishes. `followersCount` and `followingCount` arrive as the rounded, localised text the page shows, `"39M followers"` in English and `"39 Mio. Follower"` when `language` is `de`. Compare with the numbers, display the strings.
+**Two of the counts are numbers and two are strings, and that is not a bug.** `talkingAboutCount` and `checkInsCount` are the exact figures Facebook publishes. `likesCount` is optional: Facebook stopped showing a page like count in November 2026, so most pages come back without the field, and when it is there it is a number. `followersCount` and `followingCount` arrive as the rounded, localised text the page shows, `"39M followers"` in English and `"39 Mio. Follower"` when `language` is `de`. Compare with the numbers, display the strings.
 
-**`language` changes the strings, not the numbers.** `category` moved from `Sportswear Store` to `Sportbekleidungsgeschäft` under `de`, while `likesCount` stayed a number. Pick the language for the reader, not for the maths.
+**`language` changes the strings, not the numbers.** `category` moved from `Sportswear Store` to `Sportbekleidungsgeschäft` under `de`, while `talkingAboutCount` stayed a number. Pick the language for the reader, not for the maths.
 
 **A page that does not exist, was deleted or is not public still answers 200.** The response then carries `error` instead of `profile`, and the call is billed. Test for `profile` before you read it. Groups and private personal accounts land here too.
 
@@ -316,9 +315,9 @@ Yes. Both the `id` and the `pageId` a response returns resolve as `handle`, so a
 
 Call once with the handle, then keep calling with the `nextPageToken` from each response until a response arrives without one. Three posts come back per token.
 
-### Why is `followersCount` text while `likesCount` is a number?
+### Why is `followersCount` text while `talkingAboutCount` is a number?
 
-Because that is how Facebook publishes them. The like count and the talking-about count are exact on the page, and the follower count is shown rounded and localised. The response passes both through as they are.
+Because that is how Facebook publishes them. The talking-about count and the check-ins count are exact on the page, and the follower count is shown rounded and localised. The response passes both through as they are. The page like count is a different story: Facebook stopped showing it in November 2026, so `likesCount` is absent on most pages now and arrives as a number only where the page still carries one. Per-post `Like` reactions are unaffected and sit in each post's `reactions` array.
 
 ### Can I use this together with other HasData APIs?
 
@@ -352,7 +351,7 @@ HASDATA_API_KEY=your_key_here npm test
 
 The tests in `test/` assert the tool contract, the part that can break without a commit here. They check that `?apis=facebook` returns the one expected tool, that its name has not changed, that it still requires `handle` and carries a description, that `language` still offers the codes this README names, and that the key in use is actually accepted.
 
-One test reads a live page and asserts the two things this README leans on: that `likesCount` is a number rather than display text, and that `pagination.nextPageToken` arrives, because without the token the feed walk this README documents does not exist. That call costs 10 credits, which is the price of a canary that can fail for the right reason.
+One test reads a live page and asserts the two things this README leans on: that `talkingAboutCount` is a number rather than display text (and `likesCount` too, whenever the page still carries one), and that `pagination.nextPageToken` arrives, because without the token the feed walk this README documents does not exist. That call costs 10 credits, which is the price of a canary that can fail for the right reason.
 
 The contract suite also runs weekly on a schedule, because the upstream tool list can change without anyone touching this repository.
 
